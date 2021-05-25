@@ -1,0 +1,9 @@
+[Unit]
+Description=sample web application
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ec2-user/react-sample/build
+ExecStart=/usr/bin/npx http-server /home/ec2-user/react-sample/build --port=3000
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
